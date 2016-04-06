@@ -2,21 +2,18 @@
 
 import locale
 from dialog import Dialog
-from gtsc import api
+from gtsc import api, goblinapi
 
 locale.setlocale(locale.LC_ALL, '')
 d = Dialog(dialog="dialog")
 
-GOBLIN_URL = ''
 BOARD_ID = ''
 
 
 def main():
     import gtsc.api
-    global GOBLIN_URL
     global BOARD_ID
     d.set_background_title("Goblin Trello Sync client")
-    print(gtsc.api.API_TOKEN)
     if gtsc.api.API_TOKEN == '':
         code, token = d.inputbox("Your trello api token")
         if code == d.OK:
@@ -27,10 +24,10 @@ def main():
         if code == d.OK:
             gtsc.api.APP_KEY = key
 
-    if GOBLIN_URL == '':
+    if goblinapi.GOBLIN_URL == '':
         code, url = d.inputbox("Your Goblin Url")
         if code == d.OK:
-            GOBLIN_URL = url
+            goblinapi.GOBLIN_URL = url
 
     if BOARD_ID == '':
         set_borad()
