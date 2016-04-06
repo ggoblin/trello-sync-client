@@ -63,3 +63,5 @@ target/
 
 #VirtualEnv
 venv/
+testmain.py
+.idea/
