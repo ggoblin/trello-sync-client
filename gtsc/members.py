@@ -40,4 +40,4 @@ def get_member_list():
 
 def create_members(ms):
     for m in ms:
-        goblinapi.createMember(m)
+        goblinapi.create_member(m)

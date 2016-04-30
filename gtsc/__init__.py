@@ -39,6 +39,9 @@ def main():
         if tag == '(1)':
             import gtsc.members
             gtsc.members.members_menu()
+        if tag == '(2)':
+            import gtsc.iterations
+            gtsc.iterations.iteration_menu()
 
 
 def set_borad():

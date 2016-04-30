@@ -6,7 +6,7 @@ import json
 GOBLIN_URL = ''
 
 
-def createMember(m):
+def create_member(m):
     payload = {}
     payload['MemberId'] = m['id']
     payload['Name'] = m['fullName']
@@ -15,3 +15,6 @@ def createMember(m):
     header = {'content-type': 'application/json'}
     r = requests.post(GOBLIN_URL + "api/members", data=json.dumps(payload), headers=header)
     print(r.text)
+
+def create_iteration(i):
+    pass
