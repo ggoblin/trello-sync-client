@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 import gtsc
 from gtsc import api
+from gtsc import goblinapi
 
 
 def members_menu():
-    load_members()
-
-
-
+    members = load_members()
+    if gtsc.d.yesno("Are you REALLY want to import %d members?" % len(members)) == gtsc.d.OK:
+        create_members(members)
+    gtsc.main()
 
 def load_members():
     gtsc.d.gauge_start(text="Get members from trello")
@@ -36,3 +37,7 @@ def get_choice_member(members):
 
 def get_member_list():
     return api.get_all_member(gtsc.BOARD_ID)
+
+def create_members(ms):
+    for m in ms:
+        goblinapi.createMember(m)
